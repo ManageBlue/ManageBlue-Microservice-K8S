@@ -28,7 +28,3 @@ spec:
         backend:
           serviceName: manageblue-auth-microservice-node-port
           servicePort: 80
-      - path: /ui/*
-        backend:
-          serviceName: manageblue-ui-microservice-node-port
-          servicePort: 80
