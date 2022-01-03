@@ -1,0 +1,13 @@
+global:
+  datacenter: hashidc1
+
+ui:
+  service:
+    type: 'LoadBalancer'
+
+server:
+  replicas: 1
+  bootstrapExpect: 1
+  disruptionBudget:
+    enabled: true
+    maxUnavailable: 0

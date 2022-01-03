@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: manageblue-projects-microservice
+  labels:
+    app: manageblue-projects-microservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: manageblue-projects-microservice
+  template:
+    metadata:
+      labels:
+        app: manageblue-projects-microservice
+    spec:
+      containers:
+      - name: manageblue-projects-microservice
+        image: ghcr.io/manageblue/manageblue-microservice-projects:latest
+        env:
+          - name: MONGODB_CLOUD_URI
+            value: mongodb+srv://ManageBlueMongo:RSOmongo420@managebluemongo.wxj1o.mongodb.net/ManageBlueMongo
+          - name: TASK_API
+            value: manageblue-tasks-microservice-node-port.default.svc.cluster.local
+          - name: PORT
+            value: "5001"
+          - name: gRPC_MS_URL
+            value: manageblue-grpc-microservice-node-port.default.svc.cluster.local
+          - name: gRPC_MS_PORT
+            value: "50051"
+          - name: ABCD
+            value: abcde
+        ports:
+        - containerPort: 5001
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: manageblue-projects-microservice-node-port
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+    targetPort: 5001
+  selector:
+    app: manageblue-projects-microservice

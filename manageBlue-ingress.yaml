@@ -1,0 +1,34 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: manageblue-ingress
+  annotations:
+    kubernetes.io/ingress.class: gce
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /projects/*
+        backend:
+          serviceName: manageblue-projects-microservice-node-port
+          servicePort: 80
+      - path: /images/*
+        backend:
+          serviceName: manageblue-images-microservice-node-port
+          servicePort: 80
+      - path: /*
+        backend:
+          serviceName: manageblue-tasks-microservice-node-port
+          servicePort: 80
+      - path: /graphql/*
+        backend:
+          serviceName: manageblue-graphql-microservice-node-port
+          servicePort: 80
+      - path: /users/*
+        backend:
+          serviceName: manageblue-auth-microservice-node-port
+          servicePort: 80
+      - path: /ui/*
+        backend:
+          serviceName: manageblue-ui-microservice-node-port
+          servicePort: 80
