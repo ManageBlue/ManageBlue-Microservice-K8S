@@ -19,7 +19,7 @@ spec:
         image: ghcr.io/manageblue/manageblue-microservice-auth:latest
         env:
           - name: MONGODB_CLOUD_URI
-            value: mongodb+srv://ManageBlueMongo:RSOmongo420@managebluemongo.wxj1o.mongodb.net/ManageBlueMongo
+            value: <password>
         ports:
         - containerPort: 5002
 
