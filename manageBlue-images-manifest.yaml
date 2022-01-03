@@ -21,9 +21,7 @@ spec:
           - name: BING_API_KEY
             value: 2ea7baff7b0e4c30875333ca5c573555
           - name: MONGODB_CLOUD_URI
-            value: mongodb+srv://ManageBlueMongo:RSOmongo420@managebluemongo.wxj1o.mongodb.net/ManageBlueMongo
-          - name: MONGODB_CLOUD_URI2
-            value: mongodb+srv://ManageBlueMongo:RSOmongo420@managebluemongo.wxj1o.mongodb.net/ManageBlueMongo2
+            value: <password>
 
         ports:
         - containerPort: 5003
